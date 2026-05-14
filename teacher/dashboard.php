@@ -26,6 +26,10 @@ echo $OUTPUT->header();
            class="btn btn-primary">
             + <?php echo get_string('addquestion', 'local_codejudge'); ?>
         </a>
+        <a href="<?php echo (new moodle_url('/local/codejudge/teacher/download_report.php'))->out(); ?>"
+             class="btn btn-info ml-3">
+             &#128196; Download Class Report PDF
+        </a>
     </div>
 
     <!-- Question Stats -->
