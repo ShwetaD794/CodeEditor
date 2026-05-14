@@ -15,6 +15,23 @@ echo $OUTPUT->header();
 
 $questions = \local_codejudge\question_manager::get_all_questions();
 
+echo '<div class="mt-3">';
+if (has_capability('local/codejudge:managequestions', $context)) {
+    // Teacher button
+    echo '<a href="' . (new moodle_url('/local/codejudge/teacher/dashboard.php'))->out() . '"
+             class="btn btn-primary">
+             <i class="fa fa-tachometer"></i> Teacher Dashboard
+          </a>';
+} else {
+    // Student button
+    echo '<a href="' . (new moodle_url('/local/codejudge/student/my_submissions.php'))->out() . '"
+             class="btn btn-info">
+             <i class="fa fa-list"></i> My Submissions
+          </a>';
+}
+
+echo '<div class="mt-3">';
+
 if (empty($questions)) {
     echo $OUTPUT->notification(get_string('noquestions', 'local_codejudge') ?: 'No questions available yet.', 'info');
 } else {
@@ -32,15 +49,6 @@ if (empty($questions)) {
         echo '</a>';
     }
     echo '</div></div>';
-}
-
-if (has_capability('local/codejudge:managequestions', $context)) {
-    echo '<div class="mt-3">';
-    echo $OUTPUT->single_button(
-        new moodle_url('/local/codejudge/teacher/dashboard.php'),
-        get_string('dashboard', 'local_codejudge')
-    );
-    echo '</div>';
 }
 
 echo $OUTPUT->footer();

@@ -47,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 echo $OUTPUT->header();
 ?>
 <div class="container" style="max-width:700px;">
-    <h2><?php echo get_string('editquestion', 'local_codejudge'); ?></h2>
     <?php if ($error): ?>
         <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
@@ -88,7 +87,7 @@ echo $OUTPUT->header();
                 <tr>
                     <td><?php echo $i++; ?></td>
                     <td><?php echo htmlspecialchars($tc->type); ?></td>
-                    <td><pre class="mb-0"><?php echo htmlspecialchars($tc->input_data ?: '-'); ?></pre></td>
+                    <td><pre class="mb-0"><?php echo htmlspecialchars(($tc->input_data === '' || $tc->input_data === null) ? '(none)' : $tc->input_data); ?></pre></td>
                     <td><pre class="mb-0"><?php echo htmlspecialchars($tc->expected_output); ?></pre></td>
                     <td>
                         <a href="<?php echo (new moodle_url('/local/codejudge/teacher/delete_testcase.php',

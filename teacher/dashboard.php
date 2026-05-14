@@ -22,7 +22,6 @@ echo $OUTPUT->header();
 ?>
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2><?php echo get_string('dashboard', 'local_codejudge'); ?></h2>
         <a href="<?php echo (new moodle_url('/local/codejudge/teacher/add_question.php'))->out(); ?>"
            class="btn btn-primary">
             + <?php echo get_string('addquestion', 'local_codejudge'); ?>

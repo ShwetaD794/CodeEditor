@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 echo $OUTPUT->header();
 ?>
 <div class="container" style="max-width:700px;">
-    <h2><?php echo get_string('addquestion', 'local_codejudge'); ?></h2>
     <?php if ($error): ?>
         <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>

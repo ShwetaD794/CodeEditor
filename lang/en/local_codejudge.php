@@ -22,3 +22,4 @@ $string['result']            = 'Result';
 $string['pass']              = 'PASS';
 $string['fail']              = 'FAIL';
 $string['errorjudge']        = 'Judge service error: {$a}';
+$string['noquestions']        = 'No questions available yet.';

@@ -52,7 +52,6 @@ $test_cases = \local_codejudge\question_manager::get_test_cases($question_id);
 echo $OUTPUT->header();
 ?>
 <div class="container" style="max-width:700px;">
-    <h2><?php echo get_string('addtestcase', 'local_codejudge'); ?></h2>
     <p class="text-muted">For question: <strong><?php echo format_string($question->title); ?></strong></p>
 
     <?php if ($error): ?>
@@ -67,7 +66,7 @@ echo $OUTPUT->header();
         <div class="form-group">
             <label for="input_data">Input Data (leave empty if none)</label>
             <textarea id="input_data" name="input_data" class="form-control" rows="4"
-                      placeholder="e.g. 5 3"></textarea>
+                      placeholder="e.g. 5 6 7 8 2"></textarea>
         </div>
         <div class="form-group">
             <label for="expected_output">Expected Output <span class="text-danger">*</span></label>
@@ -96,7 +95,7 @@ echo $OUTPUT->header();
                 <tr>
                     <td><?php echo $i++; ?></td>
                     <td><?php echo htmlspecialchars($tc->type); ?></td>
-                    <td><pre class="mb-0" style="max-height:60px;overflow:auto"><?php echo htmlspecialchars($tc->input_data ?: '(none)'); ?></pre></td>
+                    <td><pre class="mb-0" style="max-height:60px;overflow:auto"><?php echo htmlspecialchars(($tc->input_data === '' || $tc->input_data === null) ? '(none)' : $tc->input_data); ?></pre></td>
                     <td><pre class="mb-0" style="max-height:60px;overflow:auto"><?php echo htmlspecialchars($tc->expected_output); ?></pre></td>
                 </tr>
             <?php endforeach; ?>
