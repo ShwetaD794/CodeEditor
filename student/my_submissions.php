@@ -31,6 +31,10 @@ echo $OUTPUT->header();
            class="btn btn-primary">
             &larr; Back to Questions
         </a>
+        <a href="<?php echo (new moodle_url('/local/codejudge/student/download_report.php'))->out(); ?>"
+             class="btn btn-info ml-3">
+             &#128196; Download My Report PDF
+        </a>
     </div>
 
     <?php if (empty($submissions)): ?>
